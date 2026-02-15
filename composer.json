@@ -1,0 +1,40 @@
+{
+    "name": "mediatoring/php-markdown-mirror",
+    "description": "Serve Markdown from your existing HTML pages. Schema.org JSON-LD as YAML frontmatter. Pure PHP, no dependencies.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "html-to-markdown",
+        "markdown",
+        "content-negotiation",
+        "schema-org",
+        "json-ld",
+        "llm",
+        "ai-crawler",
+        "seo",
+        "llms-txt",
+        "php"
+    ],
+    "homepage": "https://github.com/mediatoring/php-markdown-mirror",
+    "authors": [
+        {
+            "name": "Mediatoring.com",
+            "homepage": "https://mediatoring.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "ext-dom": "*",
+        "ext-mbstring": "*",
+        "ext-json": "*",
+        "ext-libxml": "*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "suggest": {
+        "ext-intl": "For improved Unicode handling"
+    }
+}
