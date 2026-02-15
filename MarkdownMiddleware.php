@@ -47,8 +47,6 @@ final class MarkdownMiddleware
      */
     public static function register(): void
     {
-        header('Vary: Accept');
-
         if (!self::isMarkdownRequested()) {
             return;
         }

@@ -57,6 +57,7 @@ Download or clone the repo and copy it anywhere in your project:
 
 ```
 your-project/
+├── .htaccess               ← add Vary header (see .htaccess.example)
 ├── index.php
 └── mdClass/
     ├── markdown_output.php    ← bootstrap
@@ -235,9 +236,15 @@ No Composer. No external dependencies.
 
 ## Caching Considerations
 
-The `Vary: Accept` header ensures that proxies and CDNs (including Cloudflare) cache HTML and Markdown responses separately. The `Cache-Control: no-transform` header prevents Cloudflare from minifying or altering the Markdown output.
+For Markdown responses, the middleware sets `Vary: Accept` and `Cache-Control: no-transform` automatically. For HTML responses, add this to your `.htaccess` (see `.htaccess.example`):
 
-If you use server-side caching (e.g. LiteSpeed Cache, WP Super Cache), make sure it respects the `Vary` header or excludes `?v=md` requests from caching.
+```apache
+<IfModule mod_headers.c>
+    Header append Vary Accept
+</IfModule>
+```
+
+This ensures proxies and CDNs (including Cloudflare) cache HTML and Markdown responses separately. The `no-transform` header prevents Cloudflare from minifying the Markdown output.
 
 ## How Is This Different From…
 
