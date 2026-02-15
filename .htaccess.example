@@ -1,0 +1,9 @@
+# php-markdown-mirror – recommended .htaccess rules
+#
+# Copy this file to your project root as .htaccess (or merge into your existing one).
+# These rules ensure that proxies and CDNs (including Cloudflare) cache
+# HTML and Markdown responses separately.
+
+<IfModule mod_headers.c>
+    Header append Vary Accept
+</IfModule>
